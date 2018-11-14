@@ -36,7 +36,7 @@ public class GameMode {
         boolean bKingFound = false;
         for ( int i = 0; i < board.length(); i++ ){
             char c = board.charAt(i);
-            if ( validChars.indexOf(c) != -1 ) {
+            if ( validChars.indexOf(c) == -1 ) {
                 if ( c == 'K' && ! wKingFound ) {
                     wKingFound = true;
                 } else if ( c == 'k' && ! bKingFound ) {

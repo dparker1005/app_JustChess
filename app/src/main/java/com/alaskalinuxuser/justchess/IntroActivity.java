@@ -11,12 +11,22 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class IntroActivity extends AppCompatActivity {
 
     static ImageView singleButton, doubleButton;
     static Boolean pBlack, pPass;
+    HashMap<String, GameMode> gameModes;
+    String currentGameMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +53,78 @@ public class IntroActivity extends AppCompatActivity {
         pPass = false;
         MainActivity.engineStrength=3;
 
+        Spinner gameModeSpinner = (Spinner) findViewById(R.id.chooseGameMode);
+        gameModeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
+                currentGameMode = parent.getItemAtPosition(pos).toString();
+                setSelectedGameMode(currentGameMode);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {}
+        });
+
+        gameModes = new HashMap<>();
+        addGameMode("Classic",
+                    "Typical Chess",
+                    "RNBQKBNRPPPPPPPP********************************pppppppprnbqkbnr");
+
+        addGameMode("Pawns Galore",
+                "All non-king pieces are replaced with pawns",
+                "PPPPKPPPPPPPPPPP********************************ppppppppppppkppp");
+
+        addGameMode("Spy",
+                "All non-king pieces are replaced with pawns, with a spy on the other side!",
+                "PPPPKPPPPPPPpPPP********************************ppPpppppppppkppp");
+
     } // End on create.
+
+    protected void addGameMode(String name, String description, String newBoard) {
+        try {
+            gameModes.put(name, new GameMode(name, description, newBoard));
+
+            ArrayList<String> gameModeNames = new ArrayList<>(gameModes.keySet());
+            ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                    android.R.layout.simple_spinner_item, gameModeNames);
+            dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+            Spinner gameModeSpinner = (Spinner) findViewById(R.id.chooseGameMode);
+            gameModeSpinner.setAdapter(dataAdapter);
+
+            if ( currentGameMode == null ) {
+                currentGameMode = name;
+            }
+
+            setSelectedGameMode(currentGameMode);
+
+        } catch (RuntimeException e) {
+            System.out.println("Invalid board: " + name);
+        }
+    }
+
+    protected void setSelectedGameMode(String gameModeName) {
+        //Update spinner
+        Spinner gameModeSpinner = (Spinner) findViewById(R.id.chooseGameMode);
+        gameModeSpinner.setSelection(getSpinnerIndex(gameModeSpinner, gameModeName));
+
+        //Update description
+        TextView gameModeDescriptionView = (TextView)findViewById(R.id.gameModeDescription);
+        GameMode onlyGameMode = gameModes.get(gameModeName);
+        gameModeDescriptionView.setText(onlyGameMode.getDescription());
+    }
+
+    //Copied from Akhil Jain's answer at https://stackoverflow.com/questions/2390102/how-to-set-selected-item-of-spinner-by-value-not-by-position
+    private int getSpinnerIndex(Spinner spinner, String myString){
+        for (int i=0;i<spinner.getCount();i++){
+            if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(myString)){
+                return i;
+            }
+        }
+
+        return 0;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
