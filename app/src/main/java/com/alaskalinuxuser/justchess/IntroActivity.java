@@ -71,13 +71,21 @@ public class IntroActivity extends AppCompatActivity {
                     "Typical Chess",
                     "RNBQKBNRPPPPPPPP********************************pppppppprnbqkbnr");
 
-        addGameMode("Pawns Galore",
-                "All non-king pieces are replaced with pawns",
-                "PPPPKPPPPPPPPPPP********************************ppppppppppppkppp");
+        addGameMode("Checker Me Up",
+                "Pawns Start in a Checker Board Formation",
+                "RNBQKNBRP*P*P*P**P*P*P*PP*P*P*P*p*p*p*p**p*p*p*pp*p*p*p*rnbqknbr");
 
-        addGameMode("Spy",
-                "All non-king pieces are replaced with pawns, with a spy on the other side!",
-                "PPPPKPPPPPPPpPPP********************************ppPpppppppppkppp");
+        addGameMode("Horse Spies",
+                "Sneaky Horsey",
+                "nNBQKBnRPPPPPPPP********************************ppppppppNnbqkbnN");
+
+        addGameMode("Ride On!",
+                "Extra knights!",
+                "NNNNKNNNPPPPPPPP********************************ppppppppnnnnknnn");
+
+        addGameMode("Full War",
+                "A pretty huge war",
+                "RNBQKBNRPPPPPPPPPPPPPPPPPPPPPPPPpppppppppppppppppppppppprnbqkbnr");
 
     } // End on create.
 
@@ -171,6 +179,7 @@ public class IntroActivity extends AppCompatActivity {
 
                         // First you define it.
                         Intent myintent = new Intent(IntroActivity.this, MainActivity.class);
+                        myintent.putExtra("START_BOARD", gameModes.get(currentGameMode).getNewBoard() );
                         // Now you call it.
                         startActivity(myintent);
 
@@ -187,6 +196,7 @@ public class IntroActivity extends AppCompatActivity {
 
                         // First you define it.
                         Intent myintent = new Intent(IntroActivity.this, MainActivity.class);
+                        myintent.putExtra("START_BOARD", gameModes.get(currentGameMode).getNewBoard() );
                         // Now you call it.
                         startActivity(myintent);
 
@@ -201,6 +211,7 @@ public class IntroActivity extends AppCompatActivity {
         pPass = true;
         // First you define it.
         Intent myintent = new Intent(IntroActivity.this, MainActivity.class);
+        myintent.putExtra("START_BOARD", gameModes.get(currentGameMode).getNewBoard() );
         // Now you call it.
         startActivity(myintent);
     } // End playDouble
