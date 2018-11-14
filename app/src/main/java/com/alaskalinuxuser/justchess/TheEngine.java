@@ -107,8 +107,8 @@ public class TheEngine {
         // Debugging only // Log.i("WJH", s);
         if (s.length()<1){
             // Too short! Do nothing!
-        } else if (s.equals("newGame")) {
-            newGame();
+        } else if (s.startsWith("newGame.")) {
+            newGame( s.substring(8) );
         } else if (s.startsWith("makeMove")) {
             String part[] = s.split(",");
             int strength = Integer.parseInt(part[1]);
@@ -183,15 +183,14 @@ public class TheEngine {
         return term;
     }
 
-    public static boolean newGame() {
+    public static boolean newGame( String startBoard ) {
         // Temporary spot for this king movement status for castle.
         wKingNeverMove=0;wKRNeverMove=0;wQRNeverMove=0;
         bKingNeverMove=0;bKRNeverMove=0;bQRNeverMove=0;
         whiteTurn=true;
         plyTurn = 0;
-        theBoard = new char[]{'R','N','B','Q','K','B','N','R','P','P','P','P','P','P','P','P','*','*','*','*',
-                '*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*',
-                '*','*','*','*','*','p','p','p','p','p','p','p','p','r','n','b','q','k','b','n','r'};
+        stringBoard = startBoard;
+        theBoard = startBoard.toCharArray();
         whiteKing=4;
         blackKing=60;
         return true;

@@ -129,8 +129,19 @@ public class MainActivity extends AppCompatActivity {
             chessImage[i]=(ImageView)findViewById(imageViews[i]);
         } // checker board.
 
+        //Get board start state
+        String newBoardState = "RNBQKBNRPPPPPPPP********************************pppppppprnbqkbnr";
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if(extras != null) {
+                newBoardState= extras.getString("START_BOARD");
+            }
+        } else {
+            newBoardState = (String) savedInstanceState.getSerializable("START_BOARD");
+        }
+
         //Start a new game.
-        terminal("newGame");
+        terminal("newGame." + newBoardState );
 
         // Visually Draw the board....
         drawBoardPieces();
