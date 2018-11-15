@@ -25,8 +25,8 @@ public class IntroActivity extends AppCompatActivity {
 
     static ImageView singleButton, doubleButton;
     static Boolean pBlack, pPass;
-    HashMap<String, GameMode> gameModes;
-    String currentGameMode;
+    static HashMap<String, GameMode> gameModes;
+    static String currentGameMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +77,7 @@ public class IntroActivity extends AppCompatActivity {
 
         addGameMode("Horse Spies",
                 "Sneaky Horsey",
-                "nNBQKBnRPPPPPPPP********************************ppppppppNnbqkbnN");
+                "nNBQKBNnPPPPPPPP********************************ppppppppNnbqkbnN");
 
         addGameMode("Ride On!",
                 "Extra knights!",
@@ -216,4 +216,9 @@ public class IntroActivity extends AppCompatActivity {
         startActivity(myintent);
     } // End playDouble
 
+    public void previewGameMode(View view) {
+        Intent myintent = new Intent(IntroActivity.this, PreviewActivity.class);
+        myintent.putExtra("START_BOARD", gameModes.get(currentGameMode).getNewBoard() );
+        startActivity(myintent);
+    }
 }

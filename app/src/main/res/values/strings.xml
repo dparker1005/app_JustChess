@@ -3,6 +3,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_intro">JustChess</string>
     <string name="new_game">New Game</string>
+    <string name="end_preview">End Preview</string>
     <string name="title_activity_about">About JustChess</string>
     <string name="title_activity_settings">Settings</string>
     <string name="liscence_stringa">Copyright 2018 by AlaskaLinuxUser (https://thealaskalinuxuser.wordpress.com)
