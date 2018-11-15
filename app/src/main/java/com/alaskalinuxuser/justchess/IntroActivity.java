@@ -3,6 +3,7 @@ package com.alaskalinuxuser.justchess;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -17,9 +18,17 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.lang.reflect.Array;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.concurrent.ExecutionException;
 
 public class IntroActivity extends AppCompatActivity {
 
@@ -71,21 +80,16 @@ public class IntroActivity extends AppCompatActivity {
                     "Typical Chess",
                     "RNBQKBNRPPPPPPPP********************************pppppppprnbqkbnr");
 
-        addGameMode("Checker Me Up",
-                "Pawns Start in a Checker Board Formation",
-                "RNBQKNBRP*P*P*P**P*P*P*PP*P*P*P*p*p*p*p**p*p*p*pp*p*p*p*rnbqknbr");
-
-        addGameMode("Horse Spies",
-                "Sneaky Horsey",
-                "nNBQKBNnPPPPPPPP********************************ppppppppNnbqkbnN");
-
-        addGameMode("Ride On!",
-                "Extra knights!",
-                "NNNNKNNNPPPPPPPP********************************ppppppppnnnnknnn");
-
-        addGameMode("Full War",
-                "A pretty huge war",
-                "RNBQKBNRPPPPPPPPPPPPPPPPPPPPPPPPpppppppppppppppppppppppprnbqkbnr");
+        GetGameModesTask task = new GetGameModesTask(this);
+        task.execute();
+        try {
+            // Waits for game modes to be loaded
+            task.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
 
     } // End on create.
 
@@ -109,6 +113,7 @@ public class IntroActivity extends AppCompatActivity {
 
         } catch (RuntimeException e) {
             System.out.println("Invalid board: " + name);
+            System.out.println(newBoard);
         }
     }
 
@@ -220,5 +225,53 @@ public class IntroActivity extends AppCompatActivity {
         Intent myintent = new Intent(IntroActivity.this, PreviewActivity.class);
         myintent.putExtra("START_BOARD", gameModes.get(currentGameMode).getNewBoard() );
         startActivity(myintent);
+    }
+}
+
+/**
+ * Downloads JSON, parses each squirrel, and adds it to the collection via a task.
+ */
+class GetGameModesTask extends AsyncTask<String, Void, Boolean> {
+    protected IntroActivity mIntroActivity;
+
+    public GetGameModesTask(IntroActivity introActivity) {
+        mIntroActivity = introActivity;
+    }
+
+    /**
+     * Downloads list of squirrels encoded using JSON from url
+     * and adds them to a SquirrelList
+     * @param strings
+     * @return SquirrelList
+     */
+    @Override
+    protected Boolean doInBackground(String... strings) {
+        // Code adapted from http://chillyfacts.com/java-send-url-http-request-read-json-response/
+        try {
+            String url = "https://gist.githubusercontent.com/dparker1005/6e2b7ce7c71ad711c9debc064438402d/raw/8efa20b4eb4095e1a3bdbfbaf918f6f1ad845551/just_chess_game_modes.json";
+            URL obj = new URL(url);
+            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+            InputStream is = con.getInputStream();
+            InputStreamReader isr = new InputStreamReader(is);
+            BufferedReader in = new BufferedReader(isr);
+            String inputLine;
+            StringBuffer response = new StringBuffer();
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+
+            JSONArray arr = new JSONArray(response.toString());
+            for(int i = 0; i < arr.length(); i++) {
+                String name = arr.getJSONObject(i).getString("name");
+                String description = arr.getJSONObject(i).getString("description");
+                String newBoard = arr.getJSONObject(i).getString("newBoard");
+                mIntroActivity.addGameMode( name, description, newBoard );
+            }
+        } catch(Exception e) {
+            System.out.println(e);
+            return false;
+        }
+        return true;
     }
 }

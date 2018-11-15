@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/dparker1005/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/26.0.0-alpha1/support-annotations-26.0.0-alpha1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="023ee503b631f69511e335a061ea008f8da60f40">
+        <dex dex="/Users/dparker1005/StudioProjects/app_JustChess/app/build/intermediates/pre-dexed/debug/support-annotations-26.0.0-alpha1_12cee26440ca9f64f8014ceb213210a4415c075e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dparker1005/.android/build-cache/df26b9fee29c5af2601727b053bbfc125a9e8600/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="952944218ecedea1554a513dec0c14d570642843">
+        <dex dex="/Users/dparker1005/StudioProjects/app_JustChess/app/build/intermediates/pre-dexed/debug/classes_92e3d74fedb09504e58cf48c7c08d27ddd304260.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dparker1005/.android/build-cache/7ba342ffb4dae4eaee75cd3374b2735461d85942/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
+        <dex dex="/Users/dparker1005/StudioProjects/app_JustChess/app/build/intermediates/pre-dexed/debug/classes_69a621dfd0724a5d19a7cec07d140e5b652a28b3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dparker1005/.android/build-cache/f0ed5a00131b0bee0ae0683ac26461c42cf88536/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="88246166d5afb106f532f6e6deae683c66b42c89">
+        <dex dex="/Users/dparker1005/StudioProjects/app_JustChess/app/build/intermediates/pre-dexed/debug/classes_6157e2e5f4069e3ad59ba479e56b7c5d2d5d517b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dparker1005/.android/build-cache/605e8ac3c245989e6c53e8c5364d7bba12a5bc80/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="cddcd0fb93bc70e27325f2f715b2710332004ebb">
+        <dex dex="/Users/dparker1005/StudioProjects/app_JustChess/app/build/intermediates/pre-dexed/debug/classes_528d26d83c060c5215fd282eb623fd95db160c6c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dparker1005/.android/build-cache/d6e34e134def27ad0ed3afad2616d647516f3816/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/dparker1005/StudioProjects/app_JustChess/app/build/intermediates/pre-dexed/debug/classes_dc6bc6a7a41be8ec737d39b76150d41eae2857dd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dparker1005/.android/build-cache/b73f2208324f7b0d0b9edabe0c8ced0bfb29765a/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="9935891f23923f39d002087085d9696568a9f657">
+        <dex dex="/Users/dparker1005/StudioProjects/app_JustChess/app/build/intermediates/pre-dexed/debug/classes_38ac66211a2a1cdcad2dac47b72540d3ebc5a293.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dparker1005/.android/build-cache/a6b127cf0ee274613690bdfc585584745788abca/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="6a022bf00ccd0948a8180c505e8e458bbddd43a6">
+        <dex dex="/Users/dparker1005/StudioProjects/app_JustChess/app/build/intermediates/pre-dexed/debug/classes_52842d77fcd20692bf908f5f148d459b815f8a28.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dparker1005/.android/build-cache/df5cccd809c713fe602d4c95484eb2ce0ee5e529/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="2e92aa0163544a804a0b34f169ca61801770839a">
+        <dex dex="/Users/dparker1005/StudioProjects/app_JustChess/app/build/intermediates/pre-dexed/debug/classes_d9837c63d6cf3ca293991aa3a0d8880f0e98bc9e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dparker1005/.android/build-cache/1c1ca182cd7f0e3aa23e4c799a9dff2a13988ab3/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
+        <dex dex="/Users/dparker1005/StudioProjects/app_JustChess/app/build/intermediates/pre-dexed/debug/classes_7f809e210f9ebeef1b14eab677d00b8ba23ced4c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dparker1005/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/Users/dparker1005/StudioProjects/app_JustChess/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.2_75f973a971b2905378196fbe1a537ee348b06229.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dparker1005/.android/build-cache/ee69ac76412b90f4e36d5b305fc88288556e7395/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="47471eb19df288158b00b8d9cfa41bce7373f5cc">
+        <dex dex="/Users/dparker1005/StudioProjects/app_JustChess/app/build/intermediates/pre-dexed/debug/classes_86126e8a70aa85727a75b5a2ee90cd09aa015aac.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dparker1005/.android/build-cache/7606e63ae93e28e1b90040e986b85ed450461916/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="c4f45092eee6cdf1a5dbd597b2b6819be652ce2e">
+        <dex dex="/Users/dparker1005/StudioProjects/app_JustChess/app/build/intermediates/pre-dexed/debug/classes_0c809268af093a4831f5532d0678f4b3257e2b8f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dparker1005/.android/build-cache/293a0046b608cb33341411cc3cd7709582f29c69/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/Users/dparker1005/StudioProjects/app_JustChess/app/build/intermediates/pre-dexed/debug/classes_66770a67568a497dce50eb4025e8766d13cae6de.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/dparker1005/.android/build-cache/20af2b64eebcd482e7e52781c42ef03b03ad9d9f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.2"
+        sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
+        <dex dex="/Users/dparker1005/StudioProjects/app_JustChess/app/build/intermediates/pre-dexed/debug/classes_bc7ef6b64769ab29255406c9079344e4cce71789.jar" />
+    </item>
+
+</items>
