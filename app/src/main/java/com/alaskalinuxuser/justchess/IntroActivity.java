@@ -254,6 +254,7 @@ class GetGameModesTask extends AsyncTask<String, Void, Boolean> {
             String url = "https://gist.githubusercontent.com/dparker1005/6e2b7ce7c71ad711c9debc064438402d/raw/8efa20b4eb4095e1a3bdbfbaf918f6f1ad845551/just_chess_game_modes.json";
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+            con.setReadTimeout(2000);
             InputStream is = con.getInputStream();
             InputStreamReader isr = new InputStreamReader(is);
             BufferedReader in = new BufferedReader(isr);
