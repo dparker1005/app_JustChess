@@ -117,14 +117,18 @@ public class IntroActivity extends AppCompatActivity {
     }
 
     protected void setSelectedGameMode(String gameModeName) {
+        if( ! gameModes.containsKey(gameModeName)) {
+            return;
+        }
+
         //Update spinner
         Spinner gameModeSpinner = (Spinner) findViewById(R.id.chooseGameMode);
         gameModeSpinner.setSelection(getSpinnerIndex(gameModeSpinner, gameModeName));
 
         //Update description
         TextView gameModeDescriptionView = (TextView)findViewById(R.id.gameModeDescription);
-        GameMode onlyGameMode = gameModes.get(gameModeName);
-        gameModeDescriptionView.setText(onlyGameMode.getDescription());
+        GameMode gameMode = gameModes.get(gameModeName);
+        gameModeDescriptionView.setText(gameMode.getDescription());
     }
 
     //Copied from Akhil Jain's answer at https://stackoverflow.com/questions/2390102/how-to-set-selected-item-of-spinner-by-value-not-by-position
