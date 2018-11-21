@@ -111,9 +111,8 @@ public class IntroActivity extends AppCompatActivity {
 
             setSelectedGameMode(currentGameMode);
 
-        } catch (RuntimeException e) {
-            System.out.println("Invalid board: " + name);
-            System.out.println(newBoard);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e);
         }
     }
 

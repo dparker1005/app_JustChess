@@ -18,7 +18,7 @@ public class GameMode {
         if ( isValidBoard( newBoard ) ) {
             mNewBoard = newBoard;
         } else {
-            throw new RuntimeException();
+            throw new IllegalArgumentException("Board for game mode \"" + name + "\" not valid: " + newBoard);
         }
     }
 
